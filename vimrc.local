@@ -1,0 +1,4 @@
+" Tabwidth auf 4 erhoehen
+set tabstop=4
+set shiftwidth=4
+set expandtab
