@@ -1,0 +1,5 @@
+.git
+.DS_Store
+_bootstrap.exclude
+_bootstrap.sh
+oh-my-zsh
