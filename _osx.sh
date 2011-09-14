@@ -79,6 +79,10 @@ defaults write com.apple.Dock showhidden -bool true
 # show folder previews in quicklook
 defaults write com.apple.finder QLEnableXRayFolders 1
 
+# speedup spaces animation as far as it is possible (only works if you switch by number)
+defaults write com.apple.dock workspaces-edge-delay -float 0.1
+defaults write com.apple.dock expose-animation-duration -int 0
+
 # Fix for the ancient UTF-8 bug in QuickLook (http://mths.be/bbo)
 echo "0x08000100:0" > ~/.CFUserTextEncoding
 
