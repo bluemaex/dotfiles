@@ -7,3 +7,6 @@
 [submodule "janus/vim-nerdtree-tabs"]
 	path = janus/vim-nerdtree-tabs
 	url = https://github.com/jistr/vim-nerdtree-tabs.git
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
