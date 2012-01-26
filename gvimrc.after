@@ -1,0 +1,10 @@
+set transparency=10
+set guioptions=aAce
+set guifont=Monaco:h12
+
+" show nerdtree bookmarks
+let NERDTreeShowBookmarks=1
+
+" swap cmd-t opening method (enter: new tab, ctrl+t: same tab)
+let g:CommandTAcceptSelectionMap = '<C-t>'
+let g:CommandTAcceptSelectionTabMap = '<CR>'
