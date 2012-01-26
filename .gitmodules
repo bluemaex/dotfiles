@@ -4,3 +4,9 @@
 [submodule "vim"]
 	path = vim
 	url = https://github.com/carlhuda/janus.git
+[submodule "janus/vim-latex"]
+	path = janus/vim-latex
+	url = git://github.com/micheljansen/vim-latex.git
+[submodule "janus/vim-nerdtree-tabs"]
+	path = janus/vim-nerdtree-tabs
+	url = https://github.com/jistr/vim-nerdtree-tabs.git
