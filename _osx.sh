@@ -57,9 +57,9 @@ defaults write com.apple.Mail DisableSendAnimations -bool true
 defaults write com.apple.dashboard devmode -bool true
 
 # Disable Resume for Preview, TextEdit, QuickTime
-# defaults write com.apple.Preview NSQuitAlwaysKeepsWindows -bool false
-# defaults write com.apple.TextEdit NSQuitAlwaysKeepsWindows -bool false
-# defaults write com.apple.QuicktimePlayerX NSQuitAlwaysKeepsWindows -bool false
+defaults write com.apple.Preview NSQuitAlwaysKeepsWindows -bool false
+defaults write com.apple.TextEdit NSQuitAlwaysKeepsWindows -bool false
+defaults write com.apple.QuicktimePlayerX NSQuitAlwaysKeepsWindows -bool false
 
 # Reset Launchpad
 rm ~/Library/Application\ Support/Dock/*.db
@@ -75,6 +75,9 @@ defaults write com.apple.finder ShowPathBar -boolean YES
 
 # Make hidden applications transparent
 defaults write com.apple.Dock showhidden -bool true
+
+# make text in quicklook selectable
+defaults write com.apple.finder QLEnableTextSelection -bool true
 
 # show folder previews in quicklook
 defaults write com.apple.finder QLEnableXRayFolders 1
