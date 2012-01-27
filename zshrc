@@ -32,7 +32,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(hosts git hub brews extract history-substring-search npm osx phing symfony2 vagrant      lol nyan)
+plugins=(hosts git github brews extract history-substring-search npm osx phing symfony2 vagrant      lol nyan)
 
 source $ZSH/oh-my-zsh.sh
 
