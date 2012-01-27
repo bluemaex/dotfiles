@@ -4,6 +4,7 @@ set shiftwidth=4
 set expandtab
 
 " Ignore these filenames during enhanced command line completion.
+set wildignore+=*/.idea/*,*/.project/*    " ignore IDE project files
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/* " ignore version control files
 set wildignore+=*.aux,*.out,*.toc " LaTeX intermediate files
 set wildignore+=*.jpg,*.bmp,*.gif " binary images
