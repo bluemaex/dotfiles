@@ -1,0 +1,7 @@
+# HOST COLOR
+PROMPT_HOST_COLOR=%{$FG[166]%} 
+
+# Add yourself some shortcuts to projects you often work on
+# Example:
+#
+# brainstormr=/Users/robbyrussell/Projects/development/planetargon/brainstormr
