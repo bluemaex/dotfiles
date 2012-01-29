@@ -35,6 +35,24 @@ let g:ctrlp_custom_ignore = {
   \ 'link': '',
   \ }
 
+" use jstags for javascript documents
+let g:tagbar_type_javascript = {
+    \ 'ctagsbin' : '/usr/local/bin/jsctags'
+\ }
+
+let g:tagbar_type_tex = {
+	    \ 'ctagstype' : 'latex',
+	    \ 'kinds'     : [
+	        \ 's:sections',
+	        \ 'g:graphics',
+	        \ 'l:labels',
+	        \ 'r:refs:1',
+	        \ 'p:pagerefs:1'
+	    \ ],
+	    \ 'sort'    : 0,
+	\ }
+
+
 
 
 " f2 toggle auto-indenting
@@ -44,13 +62,17 @@ set pastetoggle=<F2>
 nmap <silent> <F3> :NERDTreeTabsToggle<CR>
 imap <silent> <F3> <ESC>:NERDTreeTagsToggle<CR>
 
+" f7 toggle buffergate
+nmap <silent> <F7> :TagbarToggle<CR>
+imap <silent> <F7> <ESC>:TagbarToggle<CR>
+
 " f6 toggle buffergate
 nmap <silent> <F6> :BuffergatorToggle<CR>
 imap <silent> <F6> <ESC>:BuffergatorToggle<CR>
 
-" f7 toggle linenumbers
-nmap <silent> <F7> :set invnumber<CR>
-imap <silent> <F7> <ESC>:set invnumber<CR>
+" f8 toggle linenumbers
+nmap <silent> <F8> :set invnumber<CR>
+imap <silent> <F8> <ESC>:set invnumber<CR>
 
 " edit .vimrc
 nmap <silent> <leader>rc :edit $MYVIMRC<CR>
