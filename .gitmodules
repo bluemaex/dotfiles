@@ -4,9 +4,6 @@
 [submodule "janus/vim-latex"]
 	path = janus/vim-latex
 	url = git://github.com/micheljansen/vim-latex.git
-[submodule "janus/vim-nerdtree-tabs"]
-	path = janus/vim-nerdtree-tabs
-	url = https://github.com/jistr/vim-nerdtree-tabs.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
@@ -16,3 +13,15 @@
 [submodule "janus/vim-phpunit"]
 	path = janus/vim-phpunit
 	url = https://github.com/docteurklein/vim-phpunit.git
+[submodule "janus/vim-php-namespace"]
+	path = janus/vim-php-namespace
+	url = https://github.com/arnaud-lb/vim-php-namespace.git
+[submodule "janus/vim-snipmate-phpunit"]
+	path = janus/vim-snipmate-phpunit
+	url = https://github.com/nfedyashev/vim-snipmate-phpunit-snippets.git
+[submodule "janus/phpcomplete"]
+	path = janus/phpcomplete
+	url = https://github.com/shawncplus/phpcomplete.vim.git
+[submodule "janus/powerline"]
+	path = janus/powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
