@@ -59,20 +59,20 @@ let g:tagbar_type_tex = {
 set pastetoggle=<F2>
 
 " f3 nerdtreetoggle
-nmap <silent> <F3> :NERDTreeTabsToggle<CR>
-imap <silent> <F3> <ESC>:NERDTreeTagsToggle<CR>
+nmap <silent> <F3> :NERDTreeToggle<CR>
+imap <silent> <F3> <ESC>:NERDTreeFind<CR>
 
 " f7 toggle buffergate
-nmap <silent> <F7> :TagbarToggle<CR>
-imap <silent> <F7> <ESC>:TagbarToggle<CR>
+nmap <silent> <F8> :TagbarToggle<CR>
+imap <silent> <F8> <ESC>:TagbarToggle<CR>
 
 " f6 toggle buffergate
 nmap <silent> <F6> :BuffergatorToggle<CR>
 imap <silent> <F6> <ESC>:BuffergatorToggle<CR>
 
 " f8 toggle linenumbers
-nmap <silent> <F8> :set invnumber<CR>
-imap <silent> <F8> <ESC>:set invnumber<CR>
+nmap <silent> <F9> :set invnumber<CR>
+imap <silent> <F9> <ESC>:set invnumber<CR>
 
 " edit .vimrc
 nmap <silent> <leader>rc :edit $MYVIMRC<CR>
