@@ -8,7 +8,6 @@
     <array>
       <string>/usr/local/sbin/dnsmasq</string>
       <string>--keep-in-foreground</string>
-      <string>--port=2155</string>
     </array>
     <key>KeepAlive</key>
     <dict>
