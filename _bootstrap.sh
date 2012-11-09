@@ -31,3 +31,4 @@ rake
 echo "#### creating host specific zsh startup files"
 cp ${_DOTFILE_DIR}/oh-my-custom/hosts/example.path.zsh-template ${_DOTFILE_DIR}/oh-my-custom/hosts/${HOST}.path.zsh
 cp ${_DOTFILE_DIR}/oh-my-custom/hosts/example.zsh-template ${_DOTFILE_DIR}/oh-my-custom/hosts/${HOST}.zsh
+cd $HOME

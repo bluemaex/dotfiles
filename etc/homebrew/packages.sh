@@ -43,6 +43,8 @@ curl http://npmjs.org/install.sh | sh
 # databases
 brew install mysql
 mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
+sudo mkdir /var/mysql
+sudo ln -s /tmp/mysql.sock /var/mysql/mysql.sock
 
 # pandoc
 brew install haskell-platform
@@ -71,3 +73,22 @@ sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
 # link apps
 mkdir ~/Applications
 brew linkapps
+
+# php
+mkdir $HOME/Sites
+sudo chmod u+w /etc/apache2/httpd.conf
+curl -s http://php-osx.liip.ch/install.sh | bash -s 5.4
+ln -s /Library/WebServer/Documents ~/Sites/localhost
+sudo cp /etc/apache2/extra/httpd-vhosts.conf /etc/apache2/extra/httpd-vhosts.conf.save
+sudo cp $HOME/dotfiles/etc/apache/_httpd-vhosts /etc/apache2/extra/httpd-vhosts.conf
+echo "please enable vhosts in /etc/apache2/httpd.conf ..."
+
+# 
+# if zou need ssl, load ssl extension and generate a certificate:
+# 
+# mkdir /etc/apache2/ssl
+# cd /etc/apache2/ssl
+# sudo ssh-keygen -f server.key
+# sudo openssl req -new -key server.key -out request.csr
+# sudo openssl x509 -req -days 365 -in request.csr -signkey server.key -out server.crt
+#
