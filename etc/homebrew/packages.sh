@@ -74,6 +74,11 @@ sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
 mkdir ~/Applications
 brew linkapps
 
+# lolcommits
+brew install imagemagick
+sudo gem install lolcommits
+cp $HOME/dotfiles/etc/git/post-commit /usr/local/share/git-core/templates/hooks/post-commit
+
 # php
 mkdir $HOME/Sites
 sudo chmod u+w /etc/apache2/httpd.conf
