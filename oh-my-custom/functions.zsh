@@ -47,8 +47,8 @@ function tailwww() {
 }
 
 # Create a data URL from an image (works for other file types too, if you tweak the Content-Type afterwards)
-dataurl() {
-    echo "data:image/${1##*.};base64,$(openssl base6464 -in "$1")" | tr -d '\n'
+function dataurl() {
+    echo "data:image/${1##*.};base64,$(openssl base64 -in "$1")" | tr -d '\n'
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
