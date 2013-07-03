@@ -18,7 +18,7 @@ ZSH_THEME="blmx"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="false"
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -35,7 +35,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(hosts git github brews extract history-substring-search npm osx phing symfony2 vagrant      lol nyan)
 
 source $ZSH/oh-my-zsh.sh
-
 source $ZSH_CUSTOM/hosts/_motd.zsh
+source ~/src/arcanist/resources/shell/bash-completion
 
 # Customize to your needs...
