@@ -1,8 +1,0 @@
-.git
-.DS_Store
-_bootstrap.exclude
-_bootstrap.sh
-_osx.sh
-oh-my-zsh
-oh-my-custom
-etc
