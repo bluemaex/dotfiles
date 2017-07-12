@@ -1,0 +1,202 @@
+{
+  "timeStamp": 1488924690821,
+  "version": "1.10.5.9",
+  "userSettings": {
+    "advancedUserEnabled": false,
+    "alwaysDetachLogger": false,
+    "autoUpdate": true,
+    "cloudStorageEnabled": false,
+    "collapseBlocked": true,
+    "colorBlindFriendly": false,
+    "contextMenuEnabled": true,
+    "dynamicFilteringEnabled": false,
+    "externalLists": "! Examples:\n! https://easylist-downloads.adblockplus.org/fb_annoyances_full.txt\nhttps://easylist-downloads.adblockplus.org/yt_annoyances_full.txt\n",
+    "firewallPaneMinimized": true,
+    "hyperlinkAuditingDisabled": true,
+    "ignoreGenericCosmeticFilters": false,
+    "largeMediaSize": 50,
+    "parseAllABPHideFilters": true,
+    "prefetchingDisabled": true,
+    "requestLogMaxEntries": 1000,
+    "showIconBadge": true,
+    "tooltipsDisabled": false,
+    "webrtcIPAddressHidden": false
+  },
+  "filterLists": {
+    "assets/user/filters.txt": {
+      "group": "default",
+      "off": false,
+      "entryCount": 0,
+      "entryUsedCount": 0
+    },
+    "assets/ublock/experimental.txt": {
+      "title": "uBlock filters – Experimental",
+      "group": "default",
+      "off": true,
+      "supportURL": "https://github.com/gorhill/uBlock/wiki/Experimental-filters",
+      "instructionURL": "https://github.com/gorhill/uBlock/wiki/Experimental-filters",
+      "supportName": "github.com"
+    },
+    "https://easylist-downloads.adblockplus.org/yt_annoyances_full.txt": {
+      "title": "Youtube: Pure Video Experience",
+      "group": "custom",
+      "external": true,
+      "off": false,
+      "entryCount": 21,
+      "entryUsedCount": 21
+    },
+    "assets/thirdparties/easylist-downloads.adblockplus.org/easylist.txt": {
+      "title": "EasyList",
+      "group": "ads",
+      "homeURL": "https://easylist.to/easylist/easylist.txt",
+      "supportURL": "https://forums.lanik.us/",
+      "off": false,
+      "entryCount": 72033,
+      "entryUsedCount": 71898
+    },
+    "https://easylist-downloads.adblockplus.org/easylistgermany.txt": {
+      "off": false,
+      "title": "DEU: EasyList Germany",
+      "group": "regions",
+      "lang": "de",
+      "supportURL": "https://forums.lanik.us/viewforum.php?f=90",
+      "entryCount": 14804,
+      "entryUsedCount": 14797
+    },
+    "assets/thirdparties/easylist-downloads.adblockplus.org/easyprivacy.txt": {
+      "title": "EasyPrivacy",
+      "group": "privacy",
+      "homeURL": "https://easylist.to/easylist/easyprivacy.txt",
+      "supportURL": "https://forums.lanik.us/",
+      "off": false,
+      "entryCount": 12749,
+      "entryUsedCount": 12690
+    },
+    "https://easylist-downloads.adblockplus.org/fanboy-annoyance.txt": {
+      "off": false,
+      "title": "Fanboy’s Annoyance List",
+      "group": "social",
+      "supportURL": "https://forums.lanik.us/",
+      "entryCount": 25487,
+      "entryUsedCount": 10218
+    },
+    "https://easylist-downloads.adblockplus.org/fanboy-social.txt": {
+      "off": false,
+      "title": "Fanboy’s Social Blocking List",
+      "group": "social",
+      "supportURL": "https://forums.lanik.us/",
+      "entryCount": 15021,
+      "entryUsedCount": 14995
+    },
+    "https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt": {
+      "off": false,
+      "title": "Malvertising filter list by Disconnect",
+      "group": "malware",
+      "entryCount": 5510,
+      "entryUsedCount": 410
+    },
+    "https://s3.amazonaws.com/lists.disconnect.me/simple_malware.txt": {
+      "off": false,
+      "title": "Malware filter list by Disconnect",
+      "group": "malware",
+      "entryCount": 2774,
+      "entryUsedCount": 158
+    },
+    "https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt": {
+      "off": false,
+      "title": "Basic tracking list by Disconnect",
+      "group": "privacy",
+      "entryCount": 34,
+      "entryUsedCount": 29
+    },
+    "https://easylist-downloads.adblockplus.org/antiadblockfilters.txt": {
+      "off": false,
+      "title": "Adblock Warning Removal List",
+      "group": "ads",
+      "supportURL": "https://forums.lanik.us/",
+      "entryCount": 326,
+      "entryUsedCount": 311
+    },
+    "https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt": {
+      "off": false,
+      "title": "EU: Prebake - Filter Obtrusive Cookie Notices",
+      "group": "regions",
+      "supportURL": "https://github.com/liamja/Prebake",
+      "entryCount": 862,
+      "entryUsedCount": 859
+    },
+    "http://malwaredomains.lehigh.edu/files/immortal_domains.txt": {
+      "off": false,
+      "title": "Malware domains (long-lived)",
+      "group": "malware",
+      "supportURL": "http://www.malwaredomains.com/",
+      "entryCount": 3204,
+      "entryUsedCount": 2413
+    },
+    "assets/thirdparties/mirror1.malwaredomains.com/files/justdomains": {
+      "title": "Malware domains",
+      "group": "malware",
+      "homeURL": "https://mirror.cedia.org.ec/malwaredomains/justdomains",
+      "supportURL": "http://www.malwaredomains.com/",
+      "off": false,
+      "entryCount": 19236,
+      "entryUsedCount": 19194
+    },
+    "assets/thirdparties/pgl.yoyo.org/as/serverlist": {
+      "title": "Peter Lowe’s Ad and tracking server list",
+      "group": "multipurpose",
+      "homeURL": "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext",
+      "supportURL": "https://pgl.yoyo.org/adservers/",
+      "off": false,
+      "entryCount": 2352,
+      "entryUsedCount": 2351
+    },
+    "https://raw.githubusercontent.com/reek/anti-adblock-killer/master/anti-adblock-killer-filters.txt": {
+      "off": false,
+      "title": "Anti-Adblock Killer | Reek",
+      "group": "ads",
+      "supportURL": "https://github.com/reek/anti-adblock-killer",
+      "instructionURL": "https://github.com/reek/anti-adblock-killer#instruction",
+      "entryCount": 2179,
+      "entryUsedCount": 2167
+    },
+    "https://raw.githubusercontent.com/Dawsey21/Lists/master/adblock-list.txt": {
+      "off": false,
+      "title": "Spam404",
+      "group": "malware",
+      "supportURL": "http://www.spam404.com/",
+      "entryCount": 5743,
+      "entryUsedCount": 5742
+    },
+    "https://www.fanboy.co.nz/enhancedstats.txt": {
+      "off": false,
+      "title": "Fanboy’s Enhanced Tracking List",
+      "group": "privacy",
+      "supportURL": "https://forums.lanik.us/",
+      "entryCount": 1150,
+      "entryUsedCount": 1150
+    },
+    "https://www.fanboy.co.nz/fanboy-antifacebook.txt": {
+      "off": false,
+      "title": "Anti-ThirdpartySocial (see warning inside list)",
+      "group": "social",
+      "supportURL": "https://forums.lanik.us/",
+      "entryCount": 65,
+      "entryUsedCount": 65
+    },
+    "assets/thirdparties/www.malwaredomainlist.com/hostslist/hosts.txt": {
+      "title": "Malware Domain List",
+      "group": "malware",
+      "homeURL": "https://www.malwaredomainlist.com/hostslist/hosts.txt",
+      "off": false,
+      "entryCount": 1159,
+      "entryUsedCount": 1159
+    }
+  },
+  "hiddenSettingsString": "ignoreRedirectFilters false\nignoreScriptInjectFilters false\npopupFontSize unset\nsuspendTabsUntilReady false",
+  "netWhitelist": "about-scheme\nbehind-the-scene\nbookings.malaysiaairlines.com\nchrome-extension-scheme\nchrome-scheme\nloopconversation.about-scheme\nmoz-extension-scheme\nopera-scheme\nquazer.com\nvivaldi-scheme\nwww.airbnb.com\nwww.itsgreat.eu",
+  "dynamicFilteringString": "behind-the-scene * 3p-frame noop\nbehind-the-scene * 3p noop",
+  "urlFilteringString": "",
+  "hostnameSwitchesString": "",
+  "userFilters": ""
+}

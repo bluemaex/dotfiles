@@ -1,3 +1,13 @@
-gitconfig
-hgrc
-oh-my-custom/hosts/
+# ignore caches
+cache
+
+# Don't share ssh keys and known_hosts
+etc/.ssh/*.id_rsa
+etc/.ssh/*.id_rsa.pub
+etc/.ssh/known_hosts
+
+# atom
+etc/.atom/*
+!etc/.atom/Atomfile
+!etc/.atom/config.cson
+!etc/.atom/styles.less

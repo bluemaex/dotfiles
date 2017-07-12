@@ -1,0 +1,107 @@
+
+[user]
+	name = Max Stockner
+	email = mail@bluemaex.de
+
+[github]
+	user = bluemaex
+
+[core]
+	pager = cat
+	editor = vim
+	excludesfile = /Users/bluemaex/.gitignore_global
+
+[help]
+	autocorrect = 1
+
+[alias]
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v
+
+	root = rev-parse --show-toplevel
+
+	l   = log -18 --color=always --all --topo-order --pretty='format:%Cgreen%h%Creset %s%Cred%d%Creset %C(blue bold)(%cr) %C(black bold)<%an>%Creset'
+	ll  = log     --color=always --all --topo-order --pretty='format:%Cgreen%h%Creset %s%Cred%d%Creset %C(blue bold)(%cr) %C(black bold)<%an>%Creset'
+	gl  = log -12 --color=always --all --graph --topo-order --pretty='format:%Cgreen%h%Creset %s %C(blue bold)(%cr) %C(black bold)<%an>%Creset%C(yellow bold)%d%Creset%n'
+	gll = log     --color=always --all --graph --topo-order --pretty='format:%Cgreen%h%Creset %s %C(blue bold)(%cr) %C(black bold)<%an>%Creset%C(yellow bold)%d%Creset%n'
+	ld  = log -1  -p
+
+	discard-merge = reset --hard HEAD
+
+	ci = commit
+	cm = commit -a -m
+	cwtf = !git commit -a -m \"$(curl -s whatthecommit.com/index.txt)\"
+
+	co = checkout
+	cob = checkout -b
+
+	st = status
+	stat = status
+
+	branch-name = "!git rev-parse --abbrev-ref HEAD"
+	publish = "!git push -u origin $(git branch-name)"
+	unpublish = "!git push origin :$(git branch-name)"
+	rebase-branch = "!git rebase -i `git merge-base master HEAD`"
+
+	pr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+  	pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+	pull-request = "!git publish && hub pull-request "
+
+	delete-local-branch = branch -D
+	delete-remote-branch = push origin --delete
+	delete-local-reference-to-remote-branch = branch -rd
+	delete-merged-branches = !git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d
+	cleanup = !git co master && git pull && git delete-merged-branches && git pr-clean
+
+	contributors = shortlog --summary --numbered
+	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
+
+[status]
+	color = auto
+
+[fetch]
+	prune = true
+
+[apply]
+	whitespace = strip
+
+[diff]
+	color = auto
+	rename = copy
+
+[pager]
+	color = true
+	diff = diff-so-fancy | less --tabs=1,5 -RFX
+	show = diff-so-fancy | less --tabs=1,5 -RFX
+
+[color]
+	ui = always
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan

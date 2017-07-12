@@ -1,0 +1,30 @@
+"*":
+  "activate-power-mode":
+    particles:
+      enabled: false
+    plugins:
+      playAudio: true
+      screenShake: true
+    screenShake:
+      enabled: false
+  core:
+    disabledPackages: [
+      "language-javascript"
+      "whitespace"
+    ]
+    telemetryConsent: "no"
+  editor: {}
+  "exception-reporting":
+    userId: "5026b118-149a-9efa-009a-e8825f5bc2b8"
+  "git-blame":
+    columnWidth: 256
+  "linter-ui-default":
+    panelHeight: 69
+    showPanel: true
+  "php-integrator-linter":
+    showMissingDocs: false
+    validateDocblockCorrectness: false
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false

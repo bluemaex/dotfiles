@@ -1,0 +1,160 @@
+#!/usr/bin/env bash
+#
+# Wrapper script for common docker tasks
+#
+
+# Poor person's debug mode
+[[ $TRACE ]] && set -x
+
+stop-container() {
+  local container=$1
+  docker stop $container >/dev/null
+}
+
+remove-container() {
+  local container=$1
+  docker rm $container >/dev/null
+}
+
+remove-image() {
+  local image=$1
+  docker rmi $image >/dev/null
+}
+
+cleanup-containers() {
+  local containers=$(docker ps --filter status=exited -q)
+  for container in ${containers[@]}; do
+    echo "Removing container: $container"
+    remove-container $container
+  done
+}
+
+cleanup-images() {
+  local images=$(docker images --filter dangling=true -q)
+  for image in ${images[@]}; do
+    echo "Removing dangling image: $image"
+    remove-image $image
+  done
+}
+
+cmd-cleanup() {
+  declare desc="Removes stopped containers and dangling images"
+
+  cleanup-containers
+  cleanup-images
+}
+
+cmd-remove-stopped() {
+  declare desc="Removes all stopped containers"
+
+  local containers=$(docker ps -a -q)
+  for container in ${containers[@]}; do
+    local state=$(docker inspect --format "{{.State.Running}}" $container)
+    if [[ "$state" == "false" ]]; then
+      remove-container $container
+    fi
+  done
+}
+
+cmd-remove-all() {
+  declare desc="Removes all containers"
+
+  local containers=$(docker ps -a -q)
+  for container in ${containers[@]}; do
+    local state=$(docker inspect --format "{{.State.Running}}" $container)
+    echo "Removing container: $container"
+    if [[ "$state" == "true" ]]; then
+      stop-container $container
+    fi
+    remove-container $container
+  done
+}
+
+cmd-show-running() {
+  declare desc="Shows all running containers"
+
+  echo "Showing all running containers..."
+  docker ps
+}
+
+cmd-stop-running() {
+  declare desc="Stops all running containers"
+
+  echo "Stopping all running containers..."
+  local containers=$(docker ps -q)
+  for container in ${containers[@]}; do
+    echo "Stopping container: $container"
+    stop-container $container
+  done
+}
+
+cmd-show-stopped() {
+  declare desc="Shows all stopped containers"
+
+  echo "Showing all stopped containers..."
+  docker ps --filter status=exited -q
+}
+
+cmd-remove-all-images() {
+  declare desc="Removes all images"
+
+  echo "Removing all images..."
+  docker rm $(docker images -q)
+}
+
+cmd-show-ports() {
+  declare desc="Show port mappings for running containers"
+
+  local containers=$(docker ps -q)
+  for container in ${containers[@]}; do
+    echo "Container $container: $(docker port $container)"
+  done
+}
+
+cmd-help() {
+  declare desc="Shows help information for a command"
+  declare command="$1" showsource="${2:-true}"
+
+  if [[ "$command" ]]; then
+    echo "$command $(extract-args $command)"
+    echo "  $(extract-desc $command)"
+    echo
+    if [[ "$showsource" = "true" ]]; then
+      type cmd-$command | tail -n +2
+      echo
+    fi
+  else
+    echo; for cmd in $(list-cmds); do cmd-help $cmd false; done
+  fi
+}
+
+extract-args() {
+  local line=$(type cmd-$1 | grep declare | grep -v "declare desc" | head -1)
+  echo -e "${line// /\\n}" | awk -F= '/=/{print "<"$1">"}' | tr "\n" " "
+}
+
+extract-desc() {
+  eval "$(type cmd-$1 | grep desc | head -1)"; echo $desc
+}
+
+list-cmds() {
+  declare -F | grep "\-f cmd-" | awk -Fcmd- '{print $2}'
+}
+
+main() {
+  local cmd="$1"; shift || true
+  if type cmd-$cmd &> /dev/null; then
+    cmd-$cmd $@
+  else
+    if [[ -n $cmd ]]; then
+      echo "No such command: $cmd"
+      echo
+    fi
+    echo "Available commands:"
+    list-cmds | sed "s/^/  /"
+    echo
+    exit 2
+  fi
+}
+
+main $@

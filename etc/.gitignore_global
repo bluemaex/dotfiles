@@ -1,0 +1,49 @@
+#
+# Mac temporary files
+#
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Directories
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+
+#
+# Editors (vim, atom, phpstorm, etc...)
+#
+
+# vim
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+# textmate
+*.tmproj
+*.tmproject
+tmtags
+
+# jetbrains
+.idea
+.idea_modules
+atlassian-ide-plugin.xml
