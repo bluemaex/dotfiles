@@ -15,13 +15,6 @@ etc: $(foreach F, $(DOTFILES), _install/$F) ## Symlink dotfiles
 
 bin: ## symlink bin to $HOME/.bin
 		/bin/ln -sfn $(DOTPATH)/bin $(HOME)/.bin
-
-go: ## install all go command line tools
-	mkdir -p $(GOPATH)
-	go get github.com/github/hub
-	go get -ldflags -s -a -u github.com/jteeuwen/go-bindata/...
-	go get -ldflags -s -a -u github.com/convox/rack/...
-	go get github.com/convox/praxis/cmd/cx
 	
 osx: ## run osx all task, see below
 	$(MAKE) -C ./osx all

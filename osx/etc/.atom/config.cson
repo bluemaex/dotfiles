@@ -17,14 +17,13 @@
   "exception-reporting":
     userId: "5026b118-149a-9efa-009a-e8825f5bc2b8"
   "git-blame":
-    columnWidth: 256
+    columnWidth: 278
   "linter-ui-default":
     panelHeight: 69
-    showPanel: true
+  "php-integrator-base:confirmed-upgrade-message": true
   "php-integrator-linter":
     showMissingDocs: false
     validateDocblockCorrectness: false
-  "tree-view":
-    hideVcsIgnoredFiles: true
+  "tree-view": {}
   welcome:
     showOnStartup: false
