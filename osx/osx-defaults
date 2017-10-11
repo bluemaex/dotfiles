@@ -18,10 +18,11 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-#sudo scutil --set ComputerName "ceres"
-#sudo scutil --set HostName "ceres"
-#sudo scutil --set LocalHostName "ceres"
-#sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "ceres"
+hostname=`hostname -s`
+sudo scutil --set ComputerName "${hostname}"
+sudo scutil --set HostName "${hostname}"
+sudo scutil --set LocalHostName "${hostname}"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "${hostname}"
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
@@ -98,12 +99,10 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 sudo pmset -a hibernatemode 0
 
 # Remove the sleep image file to save disk space
-sudo rm /private/var/vm/sleepimage
-
 # Create a zero-byte file instead…
-sudo touch /private/var/vm/sleepimage
-
 # …and make sure it can’t be rewritten
+sudo rm /private/var/vm/sleepimage
+sudo touch /private/var/vm/sleepimage
 sudo chflags uchg /private/var/vm/sleepimage
 
 ###############################################################################
@@ -544,14 +543,6 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 # Google Chrome & Google Chrome Canary                                        #
 ###############################################################################
 
-# Disable the all too sensitive backswipe on trackpads
-defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
-defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
-
-# Disable the all too sensitive backswipe on Magic Mouse
-defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
-defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls -bool false
-
 # Use the system-native print preview dialog
 defaults write com.google.Chrome DisablePrintPreview -bool true
 defaults write com.google.Chrome.canary DisablePrintPreview -bool true
@@ -574,6 +565,14 @@ defaults write com.operasoftware.OperaDeveloper PMPrintingExpandedStateForPrint2
 
 # Bypass the annoyingly slow t.co URL shortener
 defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
+
+###############################################################################
+# LaunchD Services                                                            #
+###############################################################################
+
+# Enable remote login
+sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist
+
 
 ###############################################################################
 # Kill affected applications                                                  #

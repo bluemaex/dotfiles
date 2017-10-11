@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+port="${1:-4000}"
+ip="0.0.0.0"
+
+php -S "${ip}:${port}"
+sleep 1 && open "http://${ip}:${port}/"
+

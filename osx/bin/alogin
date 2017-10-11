@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+UUID=$(cat ~/.dz/vms.json | jq -r '.[][] | select(.alias=="'${1}'") | select(.state=="running") | .uuid')
+dz shell ${UUID:-${@}}

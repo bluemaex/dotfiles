@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo "Recursive git"
+dir=`pwd`
+
+find ${dir} -mindepth 1 -maxdepth 5 -type d -name '.git' -print0 | while IFS= read -r -d $'\0' subdir; do
+  subdir="${subdir%????}"
+  cd $subdir
+  echo ""
+  echo "${subdir}:"
+  
+  case ${1} in
+    status)
+      if [ $(git status | grep 'nothing to commit, working tree clean' -c) -ne 0 ]; then continue; fi
+      git status -s
+      ;;
+    *)
+      git ${@}
+      ;;
+  esac
+done

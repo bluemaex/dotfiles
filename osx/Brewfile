@@ -29,7 +29,7 @@ brew "dnstop"
 brew "jq"
 brew "wget", args: ["with-iri"]
 brew "vim", args: ["with-override-system-vi"]
-brew "nginx", restart_service: true
+brew "nginx"
 brew "youtube-dl"
 brew "sqlite"
 brew "ffmpeg"
@@ -40,20 +40,16 @@ brew "openssl"
 
 cask "alfred"
 cask "atom"
-cask "clementine"
 cask "diffmerge"
 cask "docker"
 cask "firefox"
-cask "gimp"
 cask "gitup"
 cask "google-chrome"
 cask "hipchat"
 cask "irccloud"
 cask "iterm2"
-cask "libreoffice"
 cask "little-snitch"
 cask "micro-snitch"
-cask "mono-mdk"
 cask "openra"
 cask "reggy"
 cask "seafile-client"
@@ -62,7 +58,6 @@ cask "skype"
 cask "textmate"
 cask "the-unarchiver"
 cask "ukelele"
-cask "vagrant"
 cask "virtualbox"
 cask "virtualbox-extension-pack"
 cask "vlc"
@@ -73,3 +68,4 @@ mas "1Password", id: 443987910
 mas "Browser Fairy", id: 483014855
 mas "Tweetbot", id: 557168941
 mas "Monosnap", id: 540348655
+mas "FSNotes", id: 1277179284

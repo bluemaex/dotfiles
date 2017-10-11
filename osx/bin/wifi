@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+AIRPORT=/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport
+CURWIFI=`${AIRPORT} -I | awk '/ SSID/ {print substr($0, index($0, $2))}'`
+
+case ${1} in
+  on)
+    networksetup -setairportpower en0 on
+    ;;
+  off)
+    networksetup -setairportpower en0 off
+    ;;
+  pw)
+    security find-generic-password -D "AirPort network password" -a "${2:-${CURWIFI}}" -gw
+    ;;
+  history)
+    defaults read /Library/Preferences/SystemConfiguration/com.apple.airport.preferences | grep --color LastConnected -A 7
+    ;;
+  *)
+    echo "Current connected WiFi: ${CURWIFI}"
+    echo "Wifi scan:"
+    $AIRPORT -s
+    ;;
+esac
