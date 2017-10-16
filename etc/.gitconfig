@@ -1,20 +1,20 @@
+[core]
+    abbrev = 12
+	pager = cat
+	editor = vim
+	excludesfile = ~/.gitignore_global
 
 [user]
 	name = Max Stockner
 	email = mail@bluemaex.de
+    useConfigOnly = true # https://github.com/git/git/blob/90f7b16b3adc78d4bbabbd426fb69aa78c714f71/Documentation/config.txt#L2847-L2855
 
 [github]
 	user = bluemaex
 
-[core]
-	pager = cat
-	editor = vim
-	excludesfile = /Users/bluemaex/.gitignore_global
-
-[help]
-	autocorrect = 1
-
 [alias]
+    git = !exec git # http://caiustheory.com/git-git-git-git-git/
+
 	tags = tag -l
 	branches = branch -a
 	remotes = remote -v
@@ -34,7 +34,7 @@
 	cwtf = !git commit -a -m \"$(curl -s whatthecommit.com/index.txt)\"
 
 	co = checkout
-	cob = checkout -b
+	go = checkout -B
 
 	st = status
 	stat = status
@@ -57,11 +57,17 @@
 	contributors = shortlog --summary --numbered
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 
+[help]
+	autocorrect = 1
+
 [status]
 	color = auto
 
 [fetch]
 	prune = true
+
+[push]
+    followTags = true # Make `git push` automatically push relevant annotated tags
 
 [apply]
 	whitespace = strip
@@ -105,3 +111,8 @@
 	added = yellow
 	changed = green
 	untracked = cyan
+
+[include]
+    # Load local configs to maybe overwrite anything above
+    # git-scm.com/docs/git-config#_includes
+    path = ~/.gitconfig.local

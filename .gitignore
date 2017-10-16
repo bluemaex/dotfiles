@@ -11,3 +11,4 @@ etc/.atom/*
 !etc/.atom/Atomfile
 !etc/.atom/*.cson
 !etc/.atom/*.less
+!etc/.atom/*.coffee
