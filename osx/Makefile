@@ -30,7 +30,7 @@ keyboard-root: keyboard ## set usumlaut as default keyboard for all users
 	sudo sh -c 'cat $(DOTPATH)/KeyboardLayouts/com.apple.HIToolbox.plist > /Library/Preferences/com.apple.HIToolbox.plist'
 
 defaults: ## set some sane osx default preferences
-	$(DOTPATH)/osx/osx-defaults
+	$(DOTPATH)/osx-defaults
 
 homebrew: ## install homebrew and all homebrew packages (see Brewfile)
 ifeq "$(wildcard /usr/local/bin/brew )" ""
@@ -42,6 +42,8 @@ endif
 go: ## install all go command line tools
 	mkdir -p $(GOPATH)
 	go get -u github.com/github/hub
+	go get -u github.com/olivere/iterm2-imagetools/cmd/imgcat
+	go get -u github.com/olivere/iterm2-imagetools/cmd/imgls
 	go get -ldflags -s -a -u github.com/jteeuwen/go-bindata/...
 	go get -ldflags -s -a -u github.com/convox/rack/...
 	go get -u github.com/convox/praxis/cmd/cx
