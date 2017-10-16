@@ -9,7 +9,7 @@ help:
 	@echo ".bluemaex/osx Tasks:"
 	@cat $(MAKEFILE_LIST) | grep -e "^[a-zA-Z_\-]*: *.*## *" | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-all: bin etc keyboard defaults homebrew atom ## all osx tasks (probably only on a new setup)
+all: bin etc keyboard keyboard-user defaults homebrew go atom ## all osx tasks (probably only on a new setup)
 
 bin: $(foreach F, $(BINFILES), _install-bin/$F) ## symlink bin files to $HOME/.bin	
 _install-bin/%:
@@ -19,9 +19,15 @@ etc: $(foreach F, $(DOTFILES), _install-dot/$F) ## Symlink files into home
 _install-dot/%:
 	@echo /bin/ln -sf $(DOTPATH)/$* $(HOME)/
 
-keyboard: ## install all custom keyboard layouts (TODO: find out how to activate them)
+keyboard: ## install all custom keyboard layouts
 	mkdir -p "/Library/Keyboard Layouts"
-	cp -r $(DOTPATH)/osx/KeyboardLayouts/*.bundle /Library/Keyboard\ Layouts
+	sudo cp -r $(DOTPATH)/KeyboardLayouts/*.bundle "/Library/Keyboard Layouts"
+	
+keyboard-user: keyboard ## set usumlaut as default keyboard for the current user
+	sh -c 'cat $(DOTPATH)/KeyboardLayouts/com.apple.HIToolbox.plist > ~/Library/Preferences/com.apple.HIToolbox.plist'
+	
+keyboard-root: keyboard ## set usumlaut as default keyboard for all users
+	sudo sh -c 'cat $(DOTPATH)/KeyboardLayouts/com.apple.HIToolbox.plist > /Library/Preferences/com.apple.HIToolbox.plist'
 
 defaults: ## set some sane osx default preferences
 	$(DOTPATH)/osx/osx-defaults

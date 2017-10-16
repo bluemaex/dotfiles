@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIdentifier</key>
-	<string>org.sil.ukelele.keyboardlayout.</string>
+	<string>org.sil.ukelele.keyboardlayout.blmx</string>
 	<key>CFBundleName</key>
 	<string></string>
 	<key>CFBundleVersion</key>
@@ -11,7 +11,7 @@
 	<key>KLInfo_USUmlaut</key>
 	<dict>
 		<key>TISInputSourceID</key>
-		<string>org.sil.ukelele.keyboardlayout..usumlaut</string>
+		<string>org.sil.ukelele.keyboardlayout.blmx.usumlaut</string>
 		<key>TISIntendedLanguage</key>
 		<string>en</string>
 	</dict>
