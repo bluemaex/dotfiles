@@ -1,4 +1,4 @@
-.PHONY: all bin etc keyboard defaults homebrew go atom atom-backup
+.PHONY: all etc keyboard defaults homebrew go atom atom-backup
 .DEFAULT_GOAL := help
 
 DOTPATH  := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
@@ -9,11 +9,7 @@ help:
 	@echo ".bluemaex/osx Tasks:"
 	@cat $(MAKEFILE_LIST) | grep -e "^[a-zA-Z_\-]*: *.*## *" | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-all: bin etc keyboard keyboard-user defaults homebrew go atom ## all osx tasks (probably only on a new setup)
-
-bin: $(foreach F, $(BINFILES), _install-bin/$F) ## symlink bin files to $HOME/.bin	
-_install-bin/%:
-	@echo /bin/ln -sf $(DOTPATH)/$* $(HOME)/.bin/
+all: etc keyboard keyboard-user defaults homebrew go atom ## all osx tasks (probably only on a new setup)
 
 etc: $(foreach F, $(DOTFILES), _install-dot/$F) ## Symlink files into home
 _install-dot/%:
@@ -37,7 +33,7 @@ ifeq "$(wildcard /usr/local/bin/brew )" ""
 	curl -fsSo $(TMPDIR)/brew-install.rb https://raw.githubusercontent.com/Homebrew/install/master/install
 	/usr/bin/ruby $(TMPDIR)/brew-install.rb
 endif
-	brew bundle
+	brew bundle --verbose
 		
 go: ## install all go command line tools
 	mkdir -p $(GOPATH)
