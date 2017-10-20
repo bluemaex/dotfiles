@@ -1,6 +1,7 @@
 "*":
   "activate-power-mode":
     particles:
+      effect: "default"
       enabled: false
     plugins:
       playAudio: true
@@ -17,13 +18,28 @@
   "exception-reporting":
     userId: "5026b118-149a-9efa-009a-e8825f5bc2b8"
   "git-blame":
-    columnWidth: 278
+    columnWidth: 319
   "linter-ui-default":
     panelHeight: 69
+    showPanel: true
+  minimap: {}
+  "php-integrator-base":
+    linting:
+      showMissingDocs: false
   "php-integrator-base:confirmed-upgrade-message": true
   "php-integrator-linter":
     showMissingDocs: false
     validateDocblockCorrectness: false
+  "php-integrator-symbol-viewer":
+    defaultShowInherited: true
+  "svg-preview":
+    openPreviewAutomatically: true
+  "terminal-plus":
+    core: {}
+    style:
+      animationSpeed: 0
+    toggles:
+      autoClose: true
   "tree-view": {}
   welcome:
     showOnStartup: false

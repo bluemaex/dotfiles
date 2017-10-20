@@ -253,11 +253,18 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
 
+# set user interface to dark mode
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
+
 # Enable highlight hover effect for the grid view of a stack (Dock)
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
 # Set the icon size of Dock items to 36 pixels
 defaults write com.apple.dock tilesize -int 36
+
+# Activate Magnification
+defaults write com.apple.dock magnification -int 1
+defaults write com.apple.dock largesize -int 76
 
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "genie"
