@@ -13,6 +13,7 @@ help:
 all: etc bin ## Run everything (except osx tasks)
 
 etc: $(foreach F, $(DOTFILES), _install-dot/$F) ## Symlink dotfiles
+	touch $(HOME)/.gitconfig_local
 
 bin: ## symlink bin files to $HOME/.bin
 	/bin/ln -sfn $(DOTPATH)/bin $(HOME)/.bin
