@@ -21,3 +21,6 @@ alias ....='cd ../../..'
 
 # Get week number
 alias week='date +%V'
+
+# grep aliases
+alias psgrep='ps aux | grep -v " grep " | grep -i'
