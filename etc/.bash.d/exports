@@ -1,0 +1,42 @@
+# vim:ft=sh
+
+# paths
+export GOPATH=${MS_HOME}/.go
+export PATH=${MS_HOME}/.bin:${MS_HOME}/.bin/${MS_OS}:${GOPATH}/bin:${PATH}
+
+# extra env
+export HOST=$(hostname | sed 's/[.].*//g')
+export RSYNC_RSH=ssh
+
+# bash history
+export HISTCONTROL=ignoreboth
+export HISTSIZE=32768
+export HISTFILESIZE=$HISTSIZE
+export HISTIGNORE="exit:* --help"
+
+ # language
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+
+## default apps
+if [ $(type -P open 2>/dev/null) ]; then
+	export BROWSER=open
+elif [ $(type -P links 2>/dev/null) ]; then
+	export BROWSER=links
+fi
+if [ $(type -P vim 2>/dev/null) ]; then
+	export EDITOR=vim
+elif [ $(type -P nano 2>/dev/null) ]; then
+	export EDITOR=nano
+fi
+
+# pager and less
+export PAGER="less"
+export LESS="-R -M --shift 5 -x 4"
+export LESSCOLOR="always"
+if [ $(type -P lesspipe.sh 2>/dev/null) ]; then
+	export LESSOPEN="|lesspipe.sh %s"
+elif [ $(type -P lesspipe 2>/dev/null) ]; then
+	export LESSOPEN="|lesspipe %s"
+fi

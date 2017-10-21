@@ -1,0 +1,7 @@
+# vim:ft=sh
+
+## rvm
+test -r "${MS_HOME}/.rvm/scripts/rvm" && source "${MS_HOME}/.rvm/scripts/rvm"
+
+## iterm
+test -r "${MS_HOME}/.iterm2_shell_integration.sh" && source "${MS_HOME}/.iterm2_shell_integration.sh"

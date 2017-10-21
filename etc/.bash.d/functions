@@ -1,0 +1,35 @@
+# vim:ft=sh
+
+# use root to set own env
+root() {
+	sudo bash --rcfile $(echo ${MS_HOME})/.bashrc
+}
+
+# chmod_fd 644 755
+chmod_fd() {
+	find . -type f -exec chmod $1 {} \;
+	find . -type d -exec chmod $2 {} \;
+}
+
+# Create a new directory and enter it
+mkd() {
+	mkdir -p "$@"
+	cd "$@" || exit
+}
+
+# Coloured man pages
+man() {
+	LESS_TERMCAP_mb=$'\e[1;31m' \
+	LESS_TERMCAP_md=$'\e[1;31m' \
+	LESS_TERMCAP_me=$'\e[0m' \
+	LESS_TERMCAP_se=$'\e[0m' \
+	LESS_TERMCAP_so=$'\e[1;44;33m' \
+	LESS_TERMCAP_ue=$'\e[0m' \
+	LESS_TERMCAP_us=$'\e[1;32m' \
+	command man "$@"
+}
+
+# Run `dig` and display the most useful info
+digga() {
+	dig +nocmd "$1" any +multiline +noall +answer
+}

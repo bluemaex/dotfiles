@@ -1,0 +1,8 @@
+# vim:ft=sh
+
+# operation specific file
+[ -r ${HOME}/.hosts.d/_${MS_OS} ] && source ${HOME}/.hosts.d/_${MS_OS}
+
+# hostname specific file
+HOST_FILE=$(hostname | sed 's/[.].*//g')
+[ -r ${HOME}/.hosts.d/${HOST_FILE} ] && source ${HOME}/.hosts.d/${HOST_FILE}

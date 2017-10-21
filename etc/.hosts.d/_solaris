@@ -1,0 +1,5 @@
+# vim:ft=sh
+
+if [ -r /opt/pkg/share/bash-completion/bash_completion ]; then
+	source /opt/pkg/share/bash-completion/bash_completion
+fi

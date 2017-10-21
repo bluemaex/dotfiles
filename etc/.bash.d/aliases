@@ -1,0 +1,23 @@
+# vim:ft=sh
+
+# ls and grep colors aliases
+if [[ -x $(which dircolors 2>/dev/null) ]]; then
+	alias ls='ls --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
+fi
+
+# more ls aliases
+alias l='ls -CF'
+alias ll='ls -la'
+alias la='ls -A'
+alias lh='ls -l -h'
+
+# ../../..
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# Get week number
+alias week='date +%V'

@@ -1,0 +1,21 @@
+# vim:ft=sh
+
+# only non-root
+if [[ ${EUID} == 0 ]] ; then
+	return
+fi
+
+
+if [[ "$TERM" != "screen" ]]; then
+	## system information
+    echo
+	echo -e "${_color_blue}* ${_color_reset}${_color_bold}uname${_color_reset}"; uname -snrmp; echo
+
+	## show who is logged on
+	echo -e "${_color_blue}* ${_color_reset}${_color_bold}who${_color_reset}"; who -Hu; echo
+fi
+
+## fortune on every login
+test -x "$(type -p fortune)" && {
+	echo -e "${_color_blue}* ${_color_reset}${_color_bold}fortune${_color_reset}"; fortune -s; echo
+}

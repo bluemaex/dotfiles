@@ -1,0 +1,9 @@
+# vim:ft=sh
+
+# cli colors
+export CLICOLOR=YES
+
+# bash completion
+if [ -r /usr/local/share/bash-completion/bash_completion ]; then
+	source /usr/local/share/bash-completion/bash_completion
+fi
