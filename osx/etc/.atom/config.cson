@@ -25,6 +25,8 @@
     showPanel: true
   minimap: {}
   "php-integrator-base":
+    general:
+      indexContinuously: false
     linting:
       showMissingDocs: false
   "php-integrator-base:confirmed-upgrade-message": true
@@ -33,6 +35,14 @@
     validateDocblockCorrectness: false
   "php-integrator-symbol-viewer":
     defaultShowInherited: true
+  "prettier-atom":
+    formatOnSaveOptions:
+      isDisabledIfNotInPackageJson: true
+      showInStatusBar: true
+    prettierOptions:
+      semi: false
+      singleQuote: true
+      trailingComma: "es5"
   "svg-preview":
     openPreviewAutomatically: true
   "terminal-plus":
