@@ -17,6 +17,13 @@ mkd() {
 	cd "$@" || exit
 }
 
+# create a temp dir and enter it
+mkt() {
+	TMPDIR=`mktemp -d`
+	echo "${TMPDIR}"
+	cd "${TMPDIR}" || exit
+}
+
 # Coloured man pages
 man() {
 	LESS_TERMCAP_mb=$'\e[1;31m' \
