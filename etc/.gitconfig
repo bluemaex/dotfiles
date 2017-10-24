@@ -38,6 +38,7 @@
 	ci = commit
 	cm = commit -a -m
 	cwtf = !git commit -a -m \"$(curl -s whatthecommit.com/index.txt)\"
+	fire = !git-fire
 
 	co = checkout
 	go = checkout -B
