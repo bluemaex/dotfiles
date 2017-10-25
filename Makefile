@@ -2,8 +2,7 @@
 .DEFAULT_GOAL := help
 
 DOTPATH  := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
-DOTFILES := $(wildcard etc/.??*) 
-BINFILES := $(wildcard bin/??*) 
+DOTFILES := $(wildcard etc/.??*)
 
 help:
 	@echo ".bluemaex Tasks:"
@@ -17,7 +16,10 @@ etc: $(foreach F, $(DOTFILES), _install-dot/$F) ## Symlink dotfiles
 
 bin: ## symlink bin files to $HOME/.bin
 	/bin/ln -sfn $(DOTPATH)/bin $(HOME)/.bin
-	
+
+ruby: ## install used rubygems
+	gem install teamocil
+
 osx: ## run osx all task, see below
 	$(MAKE) -C ./osx all
 

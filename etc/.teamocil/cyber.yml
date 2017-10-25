@@ -1,0 +1,8 @@
+windows:
+  - name: Cyberschall
+    root: ~/workspace/private/cyberschall
+    layout: tiled
+    panes:
+      - convox start
+      - make web-watch
+      - git status

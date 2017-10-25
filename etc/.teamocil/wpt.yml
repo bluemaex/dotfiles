@@ -1,0 +1,8 @@
+windows:
+  - name: BibMaex+
+    root: ~/workspace/easybib/wpt
+    layout: tiled
+    panes:
+      - convox start
+      - make frontend-watch-safe
+      - git status

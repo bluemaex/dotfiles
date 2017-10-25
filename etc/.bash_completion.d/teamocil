@@ -1,0 +1,1 @@
+command -v teamocil >/dev/null 2>&1 && complete -W "$(teamocil --list)" teamocil
