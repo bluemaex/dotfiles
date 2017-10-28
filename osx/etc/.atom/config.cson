@@ -12,9 +12,11 @@
     disabledPackages: [
       "language-javascript"
       "whitespace"
+      "linter"
     ]
     telemetryConsent: "no"
   editor:
+    autoIndentOnPaste: false
     showInvisibles: true
   "exception-reporting":
     userId: "5026b118-149a-9efa-009a-e8825f5bc2b8"
