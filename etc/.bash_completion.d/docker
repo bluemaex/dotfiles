@@ -1,0 +1,5 @@
+if [ ${MS_OS} == 'darwin' ]; then
+  command -v docker >/dev/null 2>&1 && . /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
+  command -v docker-compose >/dev/null 2>&1 && . /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
+  command -v docker-machine >/dev/null 2>&1 && . /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
+fi
