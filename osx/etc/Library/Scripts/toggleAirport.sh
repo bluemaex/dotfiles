@@ -2,18 +2,18 @@
 #
 # Most of this code is from https://gist.github.com/albertbori/1798d88a93175b9da00b
 # I just updated the regexp to recognize Anker USB LAN
-# 
-# Either run this manually or use the included LaunchAgent script via 
+#
+# Either run this manually or use the included LaunchAgent script via
 # (launchctl load Library/LaunchAgents/de.blmx.toggleairport.plist)
 #
 # Original README:
-# This is a bash script that will automatically turn your wifi off if you connect 
-# your computer to an ethernet connection and turn wifi back on when you unplug 
-# your ethernet cable/adapter. If you decide to turn wifi on for whatever reason, 
-# it will remember that choice. This was improvised from this mac hint to work with Yosemite, 
-# and without hard-coding the adapter names. It's supposed to support growl, but I didn't 
-# check that part. 
-# I did, however, add OSX notification center support. 
+# This is a bash script that will automatically turn your wifi off if you connect
+# your computer to an ethernet connection and turn wifi back on when you unplug
+# your ethernet cable/adapter. If you decide to turn wifi on for whatever reason,
+# it will remember that choice. This was improvised from this mac hint to work with Yosemite,
+# and without hard-coding the adapter names. It's supposed to support growl, but I didn't
+# check that part.
+# I did, however, add OSX notification center support.
 # Feel free to fork and fix any issues you encounter.
 #
 

@@ -2,10 +2,9 @@
 .DEFAULT_GOAL := help
 
 DOTPATH  := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
-DOTFILES := $(wildcard etc/.??* etc/*)
 BINFILES := $(wildcard bin/??*)
-LIBFILES := $(wildcard Library/**/**)
-
+PREFPATH := $(DOTPATH)/etc
+PREFFILES := $(shell find $(PREFPATH) -type f ! -iname ".DS_Store" | sed 's~$(PREFPATH)/~~g' | sed 's/ /@/g')
 
 help:
 	@echo ".bluemaex/osx Tasks:"
@@ -13,13 +12,9 @@ help:
 
 all: etc lib keyboard keyboard-user defaults shell homebrew go atom ## all osx tasks (probably only on a new setup)
 
-etc: $(foreach F, $(DOTFILES), _install-dot/$F) ## Symlink files into home
-_install-dot/%:
-	/bin/ln -sf $(DOTPATH)/$* $(HOME)/
-
-lib: $(foreach F, $(LIBFILES), _install-lib/$F) ## Symlink Library files into ~/Library
-_install-lib/%:
-	@echo /bin/ln -sf $(DOTPATH)/$* $(HOME)/$*
+etc: $(foreach F, $(PREFFILES), _install-etc/$F) ## Symlink files into home
+_install-etc/%:
+	mkdir -p "$(HOME)/$(subst @, ,$(dir $*))" && /bin/ln -sf "$(PREFPATH)/$(subst @, ,$*)" "$(HOME)/$(subst @, ,$*)"
 
 keyboard: ## install all custom keyboard layouts
 	mkdir -p "/Library/Keyboard Layouts"
@@ -54,9 +49,10 @@ go: ## install all go command line tools
 	go get -ldflags -s -a -u github.com/convox/rack/...
 	go get -u github.com/convox/praxis/cmd/cx
 
-lolcommits: ## install lolcommits and activate it for everyone
+lolcommits: ## install lolcommits and activate it for every git repo by default
 	gem install lolcommits
 	cd $(HOME)/.git_template.d/hooks && mv post-commit.lolcommits post-commit
+	ln -sf /Users/bluemaex/Seafile/Photos/lolcommits $(HOME)/.lolcommits
 
 atom: ## install atom plugins
 	apm install --packages-file $(DOTPATH)/etc/.atom/Atomfile
