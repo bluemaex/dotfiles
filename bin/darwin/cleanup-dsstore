@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -x
+
+find ${PWD} -name .DS_Store -type f -print -delete
+find ${PWD} -type d -print0 | head -100 | xargs -0 dot_clean -m

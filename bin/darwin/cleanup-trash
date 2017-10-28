@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-find . -type f -name '*.DS_Store' -ls -delete
-sudo rm -rfv /Volumes/*/.Trashes
-sudo rm -rfv ~/.Trash
-sudo rm -rfv /private/var/log/asl/*.asl 
+rm -rfv /Volumes/*/.Trashes
+rm -rfv ${HOME}/.Trash/*
 sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'
