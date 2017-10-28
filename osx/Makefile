@@ -49,6 +49,10 @@ go: ## install all go command line tools
 	go get -ldflags -s -a -u github.com/convox/rack/...
 	go get -u github.com/convox/praxis/cmd/cx
 
+npm: ## install global npm packages
+	npm -g i deploy-zone
+	npm -g i create-react-app
+
 lolcommits: ## install lolcommits and activate it for every git repo by default
 	gem install lolcommits
 	cd $(HOME)/.git_template.d/hooks && mv post-commit.lolcommits post-commit
