@@ -1,16 +1,10 @@
 # ignore caches
 cache
 
-# SSH
-etc/.ssh/*
-!etc/.ssh/authorized_keys
-!etc/.ssh/config
+# custom host files
+.gitconfig_local
 
-# osx/atom
-osx/etc/.atom/*
-!osx/etc/.atom/Atomfile
-!osx/etc/.atom/*.cson
-!osx/etc/.atom/*.less
-!osx/etc/.atom/*.coffee
-osx/etc/.atom/projects.cson
-osx/etc/.atom/github.cson
+# Don't share ssh keys and known_hosts
+etc/.ssh/*id_rsa
+etc/.ssh/*id_rsa.pub
+etc/.ssh/known_hosts
