@@ -34,6 +34,7 @@
 	ld  = log -1  -p
 
 	discard-merge = reset --hard HEAD
+	undo = reset --soft HEAD^
 
 	ci = commit
 	cm = commit -a -m
@@ -52,7 +53,7 @@
 	rebase-branch = "!git rebase -i `git merge-base master HEAD`"
 
 	pr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
-  	pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+	pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 	pull-request = "!git publish && hub pull-request "
 
 	delete-local-branch = branch -D
@@ -86,7 +87,7 @@
 	show = diff-so-fancy | less --tabs=1,5 -RFX
 
 [color]
-	ui = always
+	ui = auto
 	branch = auto
 	diff = auto
 	interactive = auto
@@ -119,4 +120,4 @@
 [include]
 	# Load local configs to maybe overwrite anything above
 	# git-scm.com/docs/git-config#_includes
-	path = ~/.gitconfig_local
+	#path = ~/.gitconfig_local
