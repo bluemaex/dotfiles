@@ -2,7 +2,7 @@
 .DEFAULT_GOAL := help
 
 DOTPATH  := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
-BINFILES := $(wildcard bin/??*)
+SYMFILES := $(wildcard etc-sym/.??*)
 PREFPATH := $(DOTPATH)/etc
 PREFFILES := $(shell find $(PREFPATH) -type f ! -iname ".DS_Store" | sed 's~$(PREFPATH)/~~g' | sed 's/ /@/g')
 
@@ -12,8 +12,10 @@ help:
 
 all: etc lib keyboard keyboard-user defaults shell homebrew go atom ## all osx tasks (probably only on a new setup)
 
-etc: $(foreach F, $(PREFFILES), _install-etc/$F) ## Symlink files into home
-_install-etc/%:
+etc: $(foreach S, $(SYMFILES), _etc-sym/$S) $(foreach F, $(PREFFILES), _etc-sub/$F) ## Symlink files into home
+_etc-sym/%:
+	/bin/ln -sf "$(DOTPATH)/$*" $(HOME)
+_etc-sub/%:
 	mkdir -p "$(HOME)/$(subst @, ,$(dir $*))" && /bin/ln -sf "$(PREFPATH)/$(subst @, ,$*)" "$(HOME)/$(subst @, ,$*)"
 
 keyboard: ## install all custom keyboard layouts
