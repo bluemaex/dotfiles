@@ -40,6 +40,7 @@ brew "fswatch"
 brew "openssl"
 brew "TomAnthony/brews/itermocil"
 
+cask "karabiner-elements"
 cask "alfred"
 cask "atom"
 cask "diffmerge"
