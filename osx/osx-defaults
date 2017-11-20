@@ -91,6 +91,33 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
+# Enable Clock menu bar item
+defaults write 'com.apple.systemuiserver' 'NSStatusItem Visible com.apple.menuextra.clock' -bool true
+defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/Clock.menu'
+
+# Enable Battery menu bar item
+defaults write 'com.apple.systemuiserver' 'NSStatusItem Visible com.apple.menuextra.battery' -bool true
+defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/Battery.menu'
+
+# Enable Bluetooth menu bar item
+defaults write 'com.apple.systemuiserver' 'NSStatusItem Visible com.apple.menuextra.bluetooth' -bool true
+defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/Bluetooth.menu'
+
+# Enable Network menu bar item
+defaults write 'com.apple.systemuiserver' 'NSStatusItem Visible com.apple.menuextra.airport' -bool true
+defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/AirPort.menu'
+
+# Enable Volume menu bar item
+defaults write 'com.apple.systemuiserver' 'NSStatusItem Visible com.apple.menuextra.volume' -bool true
+defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/Volume.menu'
+
+# Enable VPN menu bar item
+defaults write 'com.apple.systemuiserver' 'NSStatusItem Visible com.apple.menuextra.vpn' -bool true
+defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/VPN.menu'
+
+# disable Siri menu item
+defaults write 'com.apple.Siri' 'StatusMenuVisible' -bool true
+
 ###############################################################################
 # SSD-specific tweaks                                                         #
 ###############################################################################
