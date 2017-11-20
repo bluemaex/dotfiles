@@ -8,3 +8,8 @@ cache
 etc/.ssh/*id_rsa
 etc/.ssh/*id_rsa.pub
 etc/.ssh/known_hosts
+
+# Hammerspoon
+*.spoon
+!SpoonInstall.spoon
+!WiFiTransitions.spoon
