@@ -17,6 +17,14 @@ etc: $(foreach F, $(DOTFILES), _install-dot/$F) ## Symlink dotfiles
 bin: ## symlink bin files to $HOME/.bin
 	/bin/ln -sfn $(DOTPATH)/bin $(HOME)/.bin
 
+vim: ## Vim extra bundles
+ifneq "$(wildcard $(HOME)/.vim/bundle/Vundle.vim )" ""
+	cd $(HOME)/.vim/bundle/Vundle.vim && git pull
+else
+	git clone https://github.com/VundleVim/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim
+endif
+	vim +PluginInstall +qall
+
 ruby: ## install used rubygems
 	gem install teamocil
 	gem install travis

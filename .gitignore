@@ -9,6 +9,10 @@ etc/.ssh/*id_rsa
 etc/.ssh/*id_rsa.pub
 etc/.ssh/known_hosts
 
+# Vim
+etc/.vim/bundle
+etc/.vim/tmp
+
 # Hammerspoon
 *.spoon
 !SpoonInstall.spoon
