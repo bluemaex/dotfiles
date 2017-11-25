@@ -1,10 +1,1 @@
 # vim:ft=sh
-
-## rvm
-test -r "${MS_HOME}/.rvm/scripts/rvm" && source "${MS_HOME}/.rvm/scripts/rvm"
-
-## iterm
-test -r "${MS_HOME}/.iterm2_shell_integration.sh" && source "${MS_HOME}/.iterm2_shell_integration.sh"
-
-## alias teamocil to itermocil
-command -v itermocil >/dev/null 2>&1 && alias teamocil="itermocil"

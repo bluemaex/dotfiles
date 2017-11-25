@@ -3,6 +3,15 @@
 # cli colors
 export CLICOLOR=YES
 
+## RVM
+test -r "${MS_HOME}/.rvm/scripts/rvm" && source "${MS_HOME}/.rvm/scripts/rvm"
+
+## iTerm
+test -r "${MS_HOME}/.iterm2_shell_integration.sh" && source "${MS_HOME}/.iterm2_shell_integration.sh"
+
+## alias teamocil to itermocil
+command -v itermocil >/dev/null 2>&1 && alias teamocil="itermocil"
+
 # bash completion
 if [ -r /usr/local/share/bash-completion/bash_completion ]; then
 	source /usr/local/share/bash-completion/bash_completion
