@@ -88,7 +88,7 @@ inoremap <C-u> <esc>mzgUiw`za     " Change case
 nnoremap <f9> mzggg?G`z           " Panic Button
 nnoremap <C-N> :next<Enter>       " Next Buffer
 nnoremap <C-P> :prev<Enter>       " Previous Buffer
-cmap w!! w !sudo tee % >/dev/null " write as root
+cmap w!! w !sudo tee % >/dev/null
 
 " Typos
 command! -bang E e<bang>
