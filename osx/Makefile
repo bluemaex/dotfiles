@@ -10,7 +10,7 @@ help:
 	@echo ".bluemaex/osx Tasks:"
 	@cat $(MAKEFILE_LIST) | grep -e "^[a-zA-Z_\-]*: *.*## *" | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-all: etc lib keyboard keyboard-user defaults shell homebrew go atom ## all osx tasks (probably only on a new setup)
+all: etc keyboard keyboard-user defaults homebrew shell go npm atom ## all osx tasks (probably only on a new setup)
 
 etc: $(foreach S, $(SYMFILES), _etc-sym/$S) $(foreach F, $(PREFFILES), _etc-sub/$F) ## Symlink files into home
 _etc-sym/%:

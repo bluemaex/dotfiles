@@ -29,7 +29,7 @@ I usually use a US-English Keyboard which is nearly perfect, but sometimes you n
 
 With the help of [Ukulele](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=ukelele) I created my own keyboard Layout called USUmlaut. Pressing Option+A gives you ä and so. See the following Screenshot for reference:
 
-![Screenshot of the custom Keyboard Layout](KeyboardLayouts/USUmlaut-Layout.png)
+<img src="KeyboardLayouts/USUmlaut-Layout.png" height="200">
 
 You can install it with ``make keyboard``. Afterwards you need to activate it via the System Preferences.
 If you only want to use **only** this keyboard you can activate via ``make keyboard-user`` for the current user or as system default with ``make keyboard-root``
@@ -41,6 +41,13 @@ Also included here is my Atom configuration. You can easily backup and restore y
 ```
 apm install --packages-file etc/.atom/Atomfile
 ```
+
+## lolcommits
+
+If you want to have some fun while commiting you can enable [lolcommits](https://lolcommits.github.io/) by default.
+If you want to enable an existing clone just do a ``git init`` to update the hooks.
+
+Yes, it is stupid, but you can thank me later :p
 
 ## Security and Privacy on a Mac
 

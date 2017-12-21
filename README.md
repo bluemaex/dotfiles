@@ -1,6 +1,6 @@
 # .bluemaex aka my dotfiles
 
-![Screenshot of the custom Keyboard Layout](screenshot-terminal.png)
+<img src="screenshot-terminal.png" height="400">
 
 #### `bin`-folder
 
