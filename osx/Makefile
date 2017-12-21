@@ -63,6 +63,7 @@ lolcommits: ## install lolcommits and activate it for every git repo by default
 atom: ## install atom plugins
 	apm install --packages-file $(DOTPATH)/etc/.atom/Atomfile
 	apm upgrade --no-confirm
+	$(MAKE) atom-backup
 
 atom-backup: ## save current atom plugin list
 	apm list --installed --bare > $(DOTPATH)/etc/.atom/Atomfile
