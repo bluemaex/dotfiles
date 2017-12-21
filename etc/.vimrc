@@ -1,20 +1,23 @@
-" Vundle
+" be improved
 set nocompatible
 filetype off
-set rtp+=${HOME}/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'vim-scripts/Gundo'
-Plugin 'vim-airline/vim-airline'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'vim-scripts/Syntastic'
-
-call vundle#end()
-filetype plugin indent on
+" Use Vundle if installed
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
+if filereadable(vundle_readme)
+  set rtp+=${HOME}/.vim/bundle/Vundle.vim
+  call vundle#begin()
+    Plugin 'VundleVim/Vundle.vim'
+    Plugin 'editorconfig/editorconfig-vim'
+    Plugin 'vim-scripts/Gundo'
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'sheerun/vim-polyglot'
+    Plugin 'vim-scripts/Syntastic'
+  call vundle#end()
+endif
 
 " DEFAULT SET
+filetype plugin indent on
 set encoding=utf-8            " utf-8 yay
 set title                     " Show filename
 set showcmd                   " Show command mode
