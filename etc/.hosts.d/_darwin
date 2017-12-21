@@ -7,10 +7,12 @@ export CLICOLOR=YES
 test -r "${MS_HOME}/.rvm/scripts/rvm" && source "${MS_HOME}/.rvm/scripts/rvm"
 
 ## iTerm
-test -r "${MS_HOME}/.iterm2_shell_integration.sh" && source "${MS_HOME}/.iterm2_shell_integration.sh"
+test $TERM_PROGRAM = "iTerm.app" -a -r "${MS_HOME}/.iterm2_shell_integration.sh" && source "${MS_HOME}/.iterm2_shell_integration.sh"
 
-## alias teamocil to itermocil
-command -v itermocil >/dev/null 2>&1 && alias teamocil="itermocil"
+## alias teamocil to itermocil when
+if [ $TERM_PROGRAM = "iTerm.app" ] && [ -z "$TMUX" ]; then
+  command -v itermocil >/dev/null 2>&1 && alias teamocil="itermocil"
+fi
 
 # bash completion
 if [ -r /usr/local/share/bash-completion/bash_completion ]; then
