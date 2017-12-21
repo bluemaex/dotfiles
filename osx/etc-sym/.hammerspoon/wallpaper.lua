@@ -8,7 +8,9 @@ local curlRequest = nil
 local function curl_callback(filepath, exitCode, stdOut, stdErr)
     if exitCode == 0 then
         curlRequest = nil
-        hs.screen.mainScreen():desktopImageURL("file://" .. filepath)
+        for key,screen in pairs(hs.screen.allScreens()) do
+          screen:desktopImageURL("file://" .. filepath)
+        end
     else
         print(stdOut, stdErr)
     end
