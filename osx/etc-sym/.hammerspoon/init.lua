@@ -18,6 +18,7 @@ spoon.SpoonInstall.use_syncinstall = true
 Install=spoon.SpoonInstall
 
 -- load modules
+require "lockscreen"
 require "window-grid"
 require "window-layout"
 require "wifi"
