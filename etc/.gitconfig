@@ -119,5 +119,14 @@
 
 # Load local configs to maybe overwrite anything above
 # git-scm.com/docs/git-config#_includes
+#
+# example .gitconfig_local:
+#
+# [user]
+# email = mail@bluemaex.de
+#
+# [includeIf "gitdir:~/workspace/easybib/"]
+#	path = .gitconfig_work
+#
 [include]
 	path = ~/.gitconfig_local

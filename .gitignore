@@ -2,7 +2,7 @@
 cache
 
 # custom host files
-.gitconfig_local
+.gitconfig_*
 
 # Don't share ssh keys and known_hosts
 etc/.ssh/*id_rsa
