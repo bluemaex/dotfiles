@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo "Local:"
+ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, ""); print }'
+
+echo -e "\nRemote:"
+echo -n "IPv4: " ; curl -4 ipv4.icanhazip.com
+echo -n "IPv6: " ; curl -6 ipv6.icanhazip.com
+echo -n "PTR:  " ; curl icanhazptr.com

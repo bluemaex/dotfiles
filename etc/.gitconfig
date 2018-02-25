@@ -13,7 +13,7 @@
 [user]
 	name = Max Stockner
 	email = mail@bluemaex.de
-	useConfigOnly = true # https://github.com/git/git/blob/90f7b16b3adc78d4bbabbd426fb69aa78c714f71/Documentation/config.txt#L2847-L2855
+	useConfigOnly = true # git-scm.com/docs/git-config#git-config-useruseConfigOnly
 
 [github]
 	user = bluemaex
@@ -117,7 +117,7 @@
 	changed = green
 	untracked = cyan
 
+# Load local configs to maybe overwrite anything above
+# git-scm.com/docs/git-config#_includes
 [include]
-	# Load local configs to maybe overwrite anything above
-	# git-scm.com/docs/git-config#_includes
-	#path = ~/.gitconfig_local
+	path = ~/.gitconfig_local
