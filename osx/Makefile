@@ -60,6 +60,9 @@ lolcommits: ## install lolcommits and activate it for every git repo by default
 	cd $(HOME)/.git_template.d/hooks && mv post-commit.lolcommits post-commit
 	ln -sf /Users/bluemaex/Seafile/Photos/lolcommits $(HOME)/.lolcommits
 
+smb-fix: ## Fix Slow smb speeds on OSX (see https://dpron.com/os-x-10-11-5-slow-smb/)
+	printf "[default]\nsigning_required=no\n" | sudo tee /etc/nsmb.conf
+
 atom: ## install atom plugins
 	apm install --packages-file $(DOTPATH)/etc/.atom/Atomfile
 	apm upgrade --no-confirm
