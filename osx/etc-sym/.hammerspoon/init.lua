@@ -21,8 +21,9 @@ Install=spoon.SpoonInstall
 require "lockscreen"
 require "window-grid"
 require "window-layout"
-require "wifi"
 require "wallpaper"
+require "wifi"
+require "usb"
 
 -- print config loaded
 hs.notify.show("Loaded Config", "Have fun!", "")
