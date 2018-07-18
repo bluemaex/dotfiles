@@ -29,7 +29,7 @@ local gh = hs.grid.GRIDHEIGHT
 hs.hotkey.bind(hyper, 'Left', gridset({x = 0, y = 0, w = gw/2, h = gh}))
 hs.hotkey.bind(hyper, 'Right', gridset({x = gw/2, y = 0, w = gw/2, h = gh}))
 hs.hotkey.bind(hyper, 'Up', gridset({x = 0, y = 0, w = gw, h = gh/2}))
-hs.hotkey.bind(hyper, 'Down', gridset({x = 0, y = 0, w = gw, h = gh/2}))
+hs.hotkey.bind(hyper, 'Down', gridset({x = 0, y = gh/2, w = gw, h = gh/2}))
 
 -- move window position inside the grid
 hs.hotkey.bind(hyper_shift, 'Left', hs.grid.pushWindowLeft)

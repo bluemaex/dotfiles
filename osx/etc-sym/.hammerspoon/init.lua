@@ -24,6 +24,7 @@ require "window-layout"
 require "wallpaper"
 require "wifi"
 require "usb"
+require "caffeine"
 
 -- print config loaded
 hs.notify.show("Loaded Config", "Have fun!", "")

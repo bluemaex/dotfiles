@@ -8,6 +8,8 @@
       screenShake: true
     screenShake:
       enabled: false
+  "atom-ide-ui":
+    use: {}
   core:
     disabledPackages: [
       "language-javascript"
@@ -26,6 +28,8 @@
     panelHeight: 69
     showPanel: true
   minimap: {}
+  "php-ide-serenata":
+    storagePath: "/Users/bluemaex/Library/Preferences/php-ide-serenata"
   "php-integrator-base":
     general:
       indexContinuously: false
@@ -39,6 +43,7 @@
     defaultShowInherited: true
   "prettier-atom":
     formatOnSaveOptions:
+      enabled: true
       isDisabledIfNotInPackageJson: true
       showInStatusBar: true
     prettierOptions:
