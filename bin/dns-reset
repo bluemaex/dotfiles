@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+case ${OSTYPE} in
+	darwin*)
+		killall -HUP mDNSResponder
+	;;
+	solaris*)
+		pkill nscd
+	;;
+esac

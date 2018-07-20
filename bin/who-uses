@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+case ${OSTYPE} in
+	darwin*)
+  linux*)
+		sudo lsof -i :${1}
+	;;
+	solaris*)
+		lsof -o ${1}
+	;;
+esac

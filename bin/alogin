@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 
+command -v dz >/dev/null 2>&1 || (echo "dz is not installed or in PATH"; exit 1)
+
 UUID=$(cat ~/.dz/vms.json | jq -r '.[][] | select(.alias=="'${1}'") | select(.state=="running") | .uuid')
 dz shell ${UUID:-${@}}

@@ -8,13 +8,23 @@ function is_git_repository {
 	git branch > /dev/null 2>&1
 }
 
+# Detect size of git repository
+function get_git_size {
+	git count-objects -v | sed -n 's|size-pack: \(.*\)|\1|p'
+}
+
 # Determine the branch/state information for this git repository.
 function set_git_branch {
+	if [[ $(get_git_size) -gt 50000 ]]; then
+		BRANCH="(!$(git rev-parse --abbrev-ref HEAD)) "
+		return
+	fi
+
 	# Capture the output of the "git status" command.
-	git_status="$(git status 2> /dev/null)"
+	git_status="$(git status -uno 2> /dev/null)"
 
 	# Set color based on clean/staged/dirty.
-	if [[ ${git_status} =~ "working tree clean" ]]; then
+	if [[ ${git_status} =~ "nothing to commit" ]]; then
 		state="${_color_lime}"
 	elif [[ ${git_status} =~ "Changes to be committed" ]]; then
 		state="${_color_yellow}"
@@ -48,22 +58,27 @@ function set_git_branch {
 	BRANCH="${state}(${branch})${_color_blue}${remote}${_color_reset} "
 }
 
+# Determine active environments (python, dz, work)
+function set_env () {
+	ENV=""
+	if [[ -n "${VIRTUAL_ENV}" ]]; then
+		ENV="${ENV}\[${_color_magenta}\]‹`basename \"$VIRTUAL_ENV\"`›\[${_color_reset}\] "
+	fi
+	if [[ -n "${WORK_VIRTUALENV}" ]]; then
+		ENV="${ENV}\[${_color_blue}\]‹${WORK_VIRTUALENV}›\[${_color_reset}\] "
+	fi
+	if [[ -n "${DZ_VIRTUALENV}" ]]; then
+		ENV="${ENV}\[${_color_yellow}\]‹${DZ_VIRTUALENV}›\[${_color_reset}\] "
+	fi
+}
+
 # Return the prompt symbol to use, colorized based on the return value of the
 # previous command.
 function set_prompt_symbol () {
 	if test $1 -eq 0 ; then
 		PROMPT_SYMBOL="»"
 	else
-		PROMPT_SYMBOL="\[${_color_red}\]»\[${_color_reset}\]"
-	fi
-}
-
-# Determine active Python virtualenv details.
-function set_virtualenv () {
-	if test -z "$VIRTUAL_ENV" ; then
-		PYTHON_VIRTUALENV=""
-	else
-		PYTHON_VIRTUALENV="\[${_color_magenta}\]‹`basename \"$VIRTUAL_ENV\"`›\[${_color_reset}\] "
+		PROMPT_SYMBOL="\[${_color_red}\][${1}] »\[${_color_reset}\]"
 	fi
 }
 
@@ -74,17 +89,14 @@ function set_bash_prompt () {
 	set_prompt_symbol $?
 
 	# Set the PYTHON_VIRTUALENV variable.
-	set_virtualenv
+	set_env
 
 	# Set the BRANCH variable.
+	BRANCH=''
 	if [ -z "${DISABLE_GIT_PROMPT}" ]; then
 		if is_git_repository ; then
 			set_git_branch
-		else
-			BRANCH=''
 		fi
-	else
-		BRANCH=''
 	fi
 
 	# Change the window title of X terminals
@@ -92,7 +104,7 @@ function set_bash_prompt () {
 
 	# Set the bash prompt variable.
 	if [[ ${EUID} == 0 ]] ; then
-		PS1="${PYTHON_VIRTUALENV}\[${_color_red}\][\u@\h]\[${_color_reset}\]:\[${_color_blue}\]\w ${BRANCH}#\[${_color_reset}\] "
+		PS1="${PYTHON_VIRTUALENV}\[${_color_red}\][\u@\h]\[${_color_reset}\]:\[${_color_blue}\]\w ${BRANCH}#\[${_color_reset} \D{%T}\] "
 		PS2='root %> '
 	else
 		if [ -n "${SSH_CLIENT}" ] || [ -n "${SSH_TTY}" ]; then
@@ -100,7 +112,7 @@ function set_bash_prompt () {
  ${PROMPT_SYMBOL} "
 			PS2='%> '
 		else
-			PS1="\[${_color_orange}\][\u@\h]\[${_color_reset}\] ${PYTHON_VIRTUALENV}${BRANCH}\[${_color_green}\]\w\[${_color_reset}\]
+			PS1="\[${_color_orange}\][\u@\h]\[${_color_reset}\] ${PYTHON_VIRTUALENV}${BRANCH}\[${_color_green}\]\w\[${_color_reset} \D{%T}\]
  ${PROMPT_SYMBOL} "
 			PS2='%> '
 		fi
