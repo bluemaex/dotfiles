@@ -13,10 +13,6 @@ etc/.ssh/known_hosts
 etc/.vim/bundle
 etc/.vim/tmp
 
-# Hammerspoon
-*.spoon
-!SpoonInstall.spoon
-!WiFiTransitions.spoon
 # ignore custom git commit hooks
 etc/.git_template.d/hooks/*commit
 etc/.git_template.d/hooks/*push
