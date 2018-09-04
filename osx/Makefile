@@ -5,6 +5,7 @@ DOTPATH  := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 SYMFILES := $(wildcard etc-sym/.??*)
 PREFPATH := $(DOTPATH)/etc
 PREFFILES := $(shell find $(PREFPATH) -type f ! -iname ".DS_Store" | sed 's~$(PREFPATH)/~~g' | sed 's/ /@/g')
+GOPATH := $(if $(GOPATH),$(GOPATH),$(HOME)/.go)
 
 help:
 	@echo ".bluemaex/osx Tasks:"
