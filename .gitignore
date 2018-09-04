@@ -17,3 +17,7 @@ etc/.vim/tmp
 *.spoon
 !SpoonInstall.spoon
 !WiFiTransitions.spoon
+# ignore custom git commit hooks
+etc/.git_template.d/hooks/*commit
+etc/.git_template.d/hooks/*push
+etc/.git_template.d/hooks/*pull
