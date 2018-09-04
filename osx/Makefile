@@ -71,3 +71,11 @@ atom: ## install atom plugins
 
 atom-backup: ## save current atom plugin list
 	apm list --installed --bare > $(DOTPATH)/etc/.atom/Atomfile
+
+wallpaper: ## get every day the bing wallpaper as a service
+ifeq "$(wildcard /usr/local/bin/bing-wallpaper )" ""
+	curl -fsSo /usr/local/bin/bing-wallpaper https://raw.githubusercontent.com/thejandroman/bing-wallpaper/master/bing-wallpaper.sh
+	chmod +x /usr/local/bin/bing-wallpaper
+endif
+	/bin/launchctl load $(HOME)/Library/LaunchAgents/de.blmx.bingwallpaper.plist
+	/usr/local/bin/bing-wallpaper --set-wallpaper
