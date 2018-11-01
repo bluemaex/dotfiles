@@ -24,10 +24,16 @@
     showInvisibles: true
   "exception-reporting":
     userId: "5026b118-149a-9efa-009a-e8825f5bc2b8"
+  "fuzzy-finder":
+    ignoredNames: [
+      "node_modules"
+    ]
   "git-blame":
     columnWidth: 319
   "ide-flowtype":
     tryFlowBin: true
+  "linter-eslint":
+    fixOnSave: true
   "linter-ui-default":
     panelHeight: 69
     showPanel: true
@@ -47,7 +53,7 @@
     defaultShowInherited: true
   "prettier-atom":
     formatOnSaveOptions:
-      enabled: true
+      isDisabledIfNoConfigFile: true
       isDisabledIfNotInPackageJson: true
       showInStatusBar: true
     prettierOptions:
