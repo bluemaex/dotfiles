@@ -1,0 +1,8 @@
+windows:
+  - name: COMONITY
+    root: ~/workspace/gocomo/community-tool
+    layout: tiled
+    panes:
+      - make server-watch
+      - make client-start
+      - git status
