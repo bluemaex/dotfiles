@@ -8,11 +8,18 @@ find ${dir} -mindepth 1 -maxdepth 5 -type d -name '.git' -print0 | while IFS= re
   cd $subdir
   echo ""
   echo "${subdir}:"
-  
+
   case ${1} in
     status)
       if [ $(git status | grep 'nothing to commit, working tree clean' -c) -ne 0 ]; then continue; fi
-      git status -s
+        git status -s
+      ;;
+    backup)
+      UPTODATE="$(git log --branches --not --remotes --simplify-by-decoration --decorate --oneline)"
+      MODIFIED="$(git status | grep 'nothing to commit, working tree clean' -c)"
+      if [ -n "$UPTODATE" ] || [ $MODIFIED -eq 0 ] ; then
+        tar -czvf ~/Desktop/${PWD##*/}.tar.gz .
+      fi
       ;;
     *)
       git ${@}

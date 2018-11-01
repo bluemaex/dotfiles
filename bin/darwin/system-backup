@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+tar -czvf ~/Desktop/dot.tar.gz \
+  ~/.ssh/config \
+  ~/.ssh/config.d \
+  ~/.config \
+  ~/.dz
+  --exclude='/yarn'
+
+tar -czvf ~/Desktop/Seafile.tar.gz ~/Seafile
+tar -czvf ~/Desktop/Documents.tar.gz ~/Documents
+tar -czvf ~/Desktop/Downloads.tar.gz ~/Downloads
+tar -czvf ~/Desktop/Pictures.tar.gz ~/Pictures --exclude="Photos Library.photoslibrary"
+
+cd ~/workspace
+command -v git-recursive >/dev/null 2>&1 && git-recursive backup
+
+# scp results to a server if specified
+if [ -n "${1}" ]; then
+  scp ~/Desktop/*.tar.gz ${1}
+fi
