@@ -48,13 +48,10 @@ go: ## install all go command line tools
 	go get -u github.com/github/hub
 	go get -u github.com/olivere/iterm2-imagetools/cmd/imgcat
 	go get -u github.com/olivere/iterm2-imagetools/cmd/imgls
-	go get -ldflags -s -a -u github.com/jteeuwen/go-bindata/...
-	go get -ldflags -s -a -u github.com/convox/rack/...
-	go get -u github.com/convox/praxis/cmd/cx
+	go get -u github.com/scottjbarr/sqsmv
 
 npm: ## install global npm packages
-	npm -g i deploy-zone
-	npm -g i create-react-app
+	yarn global add
 
 lolcommits: ## install lolcommits and activate it for every git repo by default
 	gem install lolcommits
@@ -73,9 +70,7 @@ atom-backup: ## save current atom plugin list
 	apm list --installed --bare > $(DOTPATH)/etc/.atom/Atomfile
 
 wallpaper: ## get every day the bing wallpaper as a service
-ifeq "$(wildcard /usr/local/bin/bing-wallpaper )" ""
 	curl -fsSo /usr/local/bin/bing-wallpaper https://raw.githubusercontent.com/thejandroman/bing-wallpaper/master/bing-wallpaper.sh
 	chmod +x /usr/local/bin/bing-wallpaper
-endif
 	/bin/launchctl load $(HOME)/Library/LaunchAgents/de.blmx.bingwallpaper.plist
 	/usr/local/bin/bing-wallpaper --set-wallpaper

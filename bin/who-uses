@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 case ${OSTYPE} in
-	darwin*)
-  linux*)
+  darwin*)
 		sudo lsof -i :${1}
 	;;
 	solaris*)

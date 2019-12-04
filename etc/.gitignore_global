@@ -43,6 +43,9 @@ Session.vim
 *.tmproject
 tmtags
 
+# vscode
+.vscode
+
 # jetbrains
 .idea
 .idea_modules

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "deploy-zone": "^0.1.4",
+    "serve": "^11.2.0"
+  }
+}

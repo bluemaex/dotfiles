@@ -38,7 +38,7 @@
 
 	ci = commit
 	cm = commit -a -m
-	cwtf = !git commit -a -m \"$(curl -s whatthecommit.com/index.txt)\"
+	crap = !git commit -a -m \"$(curl -s whatthecommit.com/index.txt)\"
 	fire = !git-fire
 
 	co = checkout
@@ -46,6 +46,7 @@
 
 	st = status
 	stat = status
+	ci-st = !hub ci-status -v
 
 	branch-name = "!git rev-parse --abbrev-ref HEAD"
 	publish = "!git push -u origin $(git branch-name)"
@@ -118,7 +119,7 @@
 	untracked = cyan
 
 # Load local configs to maybe overwrite anything above
-# git-scm.com/docs/git-config#_includes
+# http://git-scm.com/docs/git-config#_includes
 #
 # example .gitconfig_local:
 #
