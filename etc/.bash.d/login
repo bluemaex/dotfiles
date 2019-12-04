@@ -9,12 +9,9 @@ fi
 if [[ "$TERM" != "screen" ]]; then
 	## system information
 	echo -e "${_color_blue}* ${_color_reset}${_color_bold}uname${_color_reset}"; uname -snrmp; echo
-
-	## show who is logged on
-	echo -e "${_color_blue}* ${_color_reset}${_color_bold}who${_color_reset}"; who -Hu; echo
 fi
 
 ## fortune on every login
-command -v fortune && {
+command -v fortune > /dev/null && {
 	echo -e "${_color_blue}* ${_color_reset}${_color_bold}fortune${_color_reset}"; fortune -s; echo
 } || :

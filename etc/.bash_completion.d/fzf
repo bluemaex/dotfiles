@@ -1,0 +1,1 @@
+[ -f /usr/local/opt/fzf/shell/completion.bash ] && source "/usr/local/opt/fzf/shell/completion.bash" 2> /dev/null

@@ -1,0 +1,7 @@
+TABTAB_PATH="${MS_HOME}/.config/yarn/global/node_modules/tabtab/.completions"
+
+if [ -d "${TABTAB_PATH}" ]; then
+    for script in "${TABTAB_PATH}/*.bash"; do
+        source ${script};
+    done
+fi

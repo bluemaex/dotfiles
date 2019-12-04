@@ -24,3 +24,6 @@ alias week='date +%V'
 
 # grep aliases
 alias psgrep='ps aux | grep -v " grep " | grep -i'
+
+# workon if teamocil present
+command -v teamocil >/dev/null 2>&1 && alias workon=teamocil
