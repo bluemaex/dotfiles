@@ -15,10 +15,12 @@
       "language-javascript"
       "whitespace"
       "linter"
+      "language-gfm"
+      "ide-flowtype"
       "ide-typescript"
-      "language-typescript"
     ]
     telemetryConsent: "no"
+    titleBar: "custom"
   editor:
     autoIndentOnPaste: false
     showInvisibles: true
@@ -32,8 +34,18 @@
     columnWidth: 319
   "ide-flowtype":
     tryFlowBin: true
+  "language-babel": {}
   "linter-eslint":
-    fixOnSave: true
+    autofix:
+      fixOnSave: true
+    scopes: [
+      "source.js"
+      "source.jsx"
+      "source.js.jsx"
+      "source.babel"
+      "source.js-semantic"
+      "source.ts"
+    ]
   "linter-ui-default":
     panelHeight: 69
     showPanel: true

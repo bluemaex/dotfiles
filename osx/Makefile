@@ -69,6 +69,13 @@ atom: ## install atom plugins
 atom-backup: ## save current atom plugin list
 	apm list --installed --bare > $(DOTPATH)/etc/.atom/Atomfile
 
+code: ## install vscode plugins
+	while read line; do code --install-extension $line; done < $(DOTPATH)/etc/Library/Application\ Support/Code/Vscodefile
+	$(MAKE) code-backup
+
+code-backup: ## save current vscode plugin list
+	code --list-extensions > $(DOTPATH)/etc/Library/Application\ Support/Code/Vscodefile
+
 wallpaper: ## get every day the bing wallpaper as a service
 	curl -fsSo /usr/local/bin/bing-wallpaper https://raw.githubusercontent.com/thejandroman/bing-wallpaper/master/bing-wallpaper.sh
 	chmod +x /usr/local/bin/bing-wallpaper
