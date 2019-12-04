@@ -1,0 +1,7 @@
+windows:
+  - name: deepdive
+    root: ~/workspace/gocomo/deepdive-cache
+    layout: tiled
+    panes:
+      - make start
+      - git status

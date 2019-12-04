@@ -1,0 +1,8 @@
+windows:
+  - name: IDENTIFICATOR
+    root: ~/workspace/gocomo/identificator
+    layout: tiled
+    panes:
+      - make backend-start
+      - make frontend-start
+      - git status

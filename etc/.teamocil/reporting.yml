@@ -1,0 +1,16 @@
+windows:
+  - name: REPORTING
+    root: ~/workspace/gocomo/como-reporting
+    layout: double-main-horizontal
+    panes:
+      - cd server && yarn start:dev
+      - commands: 
+        - cd ../influencer-db
+        - make start
+      - cd client && yarn start
+      - commands:
+        - git status
+        focus: true
+      - commands: 
+        - cd ../influencer-db
+        - git status

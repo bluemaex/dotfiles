@@ -1,0 +1,13 @@
+windows:
+  - name: worker-api
+    root: ~/workspace/gocomo/influencer-worker
+    layout: main-vertical-flipped
+    panes:
+      - cd ../influencer-worker-api && make start
+      - make start
+      - make start
+      - make start
+      - commands:
+        - make local-aws
+        - git status
+        focus: true
