@@ -99,9 +99,6 @@ function set_bash_prompt () {
 		fi
 	fi
 
-	# sync bash history between terminals, all the time
-	history -a; history -n
-
 	# Change the window title of X terminals
 	echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"
 

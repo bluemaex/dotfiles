@@ -11,7 +11,7 @@ help:
 	@echo ".bluemaex/osx Tasks:"
 	@cat $(MAKEFILE_LIST) | grep -e "^[a-zA-Z_\-]*: *.*## *" | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-all: etc keyboard keyboard-user defaults homebrew shell go npm atom ## all osx tasks (probably only on a new setup)
+all: etc keyboard keyboard-user defaults homebrew shell go npm ## all osx tasks (probably only on a new setup)
 
 etc: $(foreach S, $(SYMFILES), _etc-sym/$S) $(foreach F, $(PREFFILES), _etc-sub/$F) ## Symlink files into home
 _etc-sym/%:
@@ -48,7 +48,6 @@ go: ## install all go command line tools
 	go get -u github.com/github/hub
 	go get -u github.com/olivere/iterm2-imagetools/cmd/imgcat
 	go get -u github.com/olivere/iterm2-imagetools/cmd/imgls
-	go get -u github.com/scottjbarr/sqsmv
 
 npm: ## install global npm packages
 	yarn global add
@@ -58,16 +57,11 @@ lolcommits: ## install lolcommits and activate it for every git repo by default
 	cd $(HOME)/.git_template.d/hooks && cp post-commit.lolcommits post-commit
 	ln -sf /Users/bluemaex/Seafile/Photos/lolcommits $(HOME)/.lolcommits
 
+python: # install pip packages for eg itermß
+	pip3 install itomate
+
 smb-fix: ## Fix Slow smb speeds on OSX (see https://dpron.com/os-x-10-11-5-slow-smb/)
 	printf "[default]\nsigning_required=no\n" | sudo tee /etc/nsmb.conf
-
-atom: ## install atom plugins
-	apm install --packages-file $(DOTPATH)/etc/.atom/Atomfile
-	apm upgrade --no-confirm
-	$(MAKE) atom-backup
-
-atom-backup: ## save current atom plugin list
-	apm list --installed --bare > $(DOTPATH)/etc/.atom/Atomfile
 
 code: ## install vscode plugins
 	while read line; do code --install-extension $line; done < $(DOTPATH)/etc/Library/Application\ Support/Code/Vscodefile
@@ -81,3 +75,8 @@ wallpaper: ## get every day the bing wallpaper as a service
 	chmod +x /usr/local/bin/bing-wallpaper
 	/bin/launchctl load $(HOME)/Library/LaunchAgents/de.blmx.bingwallpaper.plist
 	/usr/local/bin/bing-wallpaper --set-wallpaper
+
+texteditor: 
+	duti -s com.microsoft.VSCode public.plain-text all
+	duti -s com.microsoft.VSCode public.data all
+	duti -s com.microsoft.VSCode public.unix-executable all
